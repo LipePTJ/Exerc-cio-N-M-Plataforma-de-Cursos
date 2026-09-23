@@ -20,11 +20,13 @@ public class Matricula {
     // Várias matrículas pertencem a um aluno
     @ManyToOne
     @JoinColumn(name = "aluno_id")
+    // evita o loop infinito
     @JsonIgnoreProperties("matriculas")
     private Aluno aluno;
     // Várias matrículas pertencem a um curso
     @ManyToOne
     @JoinColumn(name = "curso_id")
+    // evita o loop infinito
     @JsonIgnoreProperties("matriculas")
     private Curso curso;
 }
